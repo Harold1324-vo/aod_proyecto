@@ -10,6 +10,6 @@ class Computers extends Model
     use HasFactory;
 
     protected $fillable = [
-        'brand', 'model', 'processor', 'sizeRam', 'capacityHDD', 'weight', 'color', 'sizeScreen', 'description', 'usbNumber', 'commentary', 'available' 
+        'brand', 'model', 'processor', 'sizeRam', 'typeRAM', 'capacityHDD', 'weight', 'color', 'sizeScreen', 'so','description', 'usbNumber', 'commentary', 'available' 
     ];
 }

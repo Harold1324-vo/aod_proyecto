@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComputersController;
+use App\Http\Controllers\MonitorController;
+use App\Http\Controllers\KeyboardController;
+use App\Http\Controllers\ProcessorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +23,7 @@ Route::get('/', function () {
 
 Route::resources([
     'computers' => ComputersController::class,
+    'monitors' => MonitorController::class,
+    'keyboards' => KeyboardController::class,
+    'processors' => ProcessorController::class,
 ]);

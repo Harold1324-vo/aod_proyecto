@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Computers;
+use App\Models\Processor;
 use Illuminate\Http\Request;
 
-class ComputersController extends Controller
+class ProcessorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ComputersController extends Controller
     public function index()
     {
         //Retornar datos
-        $computers = Computers::all();
-        return view('computers.index', compact('computers'));
+        $processors = Processor::all();
+        return view('processors.index', compact('processors'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ComputersController extends Controller
      */
     public function create()
     {
-        return view('computers.create');
+        return view('processors.create');
     }
 
     /**
@@ -37,18 +37,18 @@ class ComputersController extends Controller
      */
     public function store(Request $request)
     {
-        $computer = request()->except('_token');
-        Computers::insert($computer);
-        return view('computers.index');
+        $processor = request()->except('_token');
+        Processor::insert($processor);
+        return view('processors.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Computers  $computers
+     * @param  \App\Models\Processor  $processor
      * @return \Illuminate\Http\Response
      */
-    public function show(Computers $computers)
+    public function show(Processor $processor)
     {
         //
     }
@@ -56,10 +56,10 @@ class ComputersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Computers  $computers
+     * @param  \App\Models\Processor  $processor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Computers $computers)
+    public function edit(Processor $processor)
     {
         //
     }
@@ -68,10 +68,10 @@ class ComputersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Computers  $computers
+     * @param  \App\Models\Processor  $processor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Computers $computers)
+    public function update(Request $request, Processor $processor)
     {
         //
     }
@@ -79,10 +79,10 @@ class ComputersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Computers  $computers
+     * @param  \App\Models\Processor  $processor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Computers $computers)
+    public function destroy(Processor $processor)
     {
         //
     }

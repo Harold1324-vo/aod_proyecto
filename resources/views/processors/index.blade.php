@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
-@forelse($computers as $computer)
+@forelse($processors as $processor)
     <li>
-        <h3>{{ $computer->brand }} {{ $computer->model }}</h3>
-        <p>{{ $computer->description }}</p>
+        <h3>{{ $processor->brand }} {{ $processor->model }}</h3>
+        <p>{{ $processor->description }}</p>
         <br>
 
     </li>
