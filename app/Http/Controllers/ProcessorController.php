@@ -51,6 +51,7 @@ class ProcessorController extends Controller
     public function show(Processor $processor)
     {
         //
+        return view('processors.show', compact('processor'));
     }
 
     /**

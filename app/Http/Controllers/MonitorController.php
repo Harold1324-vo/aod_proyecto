@@ -51,6 +51,7 @@ class MonitorController extends Controller
     public function show(Monitor $monitor)
     {
         //
+        return view('monitors.show', compact('monitor'));
     }
 
     /**

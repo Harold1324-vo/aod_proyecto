@@ -51,6 +51,7 @@ class KeyboardController extends Controller
     public function show(Keyboard $keyboard)
     {
         //
+        return view('keyboards.show', compact('keyboard'));
     }
 
     /**

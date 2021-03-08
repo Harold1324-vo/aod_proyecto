@@ -5,11 +5,13 @@
         <div class ="card-header">
             <div class="row">
                 <div class="class col md-8">
-                    <h2 class="card-title">Lista de computadoras registrados.</h2>
+                    <div class="card-title">
+                        <h2>Computadora: {{ $computer->brand }} {{ $computer->model }}</h2>
+                    </div>
                 </div>
                 <div class="class col md 4">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a class="btn btn-primary" href="{{ route('computers.create') }}">+ Nuevo</a>
+                        <a class="btn btn-primary" href="{{ route('computers.index') }}">< Regresar</a>
                     </div>
                 </div>
             </div>
@@ -21,20 +23,17 @@
                     <th>Computadora</th>
                     <th>Modelo</th>
                     <th>Información</th>
-                    <th>Descripción</th>
                 </thead>
                 
                 <tbody>
-                    @forelse($computers as $computer)
+                   
                     <tr>
                         <td>
-                            <a class="btn btn-info btn-small" href="{{ route('computers.show', $computer->id) }} ">
-                                <h4>{{ $computer->brand }} {{ $computer->model }}</h4></td>
-                            </a>
+                            <p>Imagen</p>
                         <td>
                             <p><b>Procesador: </b> {{ $computer->processor}} </p>
                             <p><b>Tamaño de RAM: </b> {{ $computer->sizeRam}} </p>
-                            <p><b>Tipo de RAM: </b> {{ $computer->typeRAM}} </p>
+                            <p class="text-uppercase"><b class="text-capitalize">Tipo de RAM: </b> {{ $computer->typeRAM}} </p>
                             <p><b>Capacidad del HDD: </b> {{ $computer->capacityHDD}} </p>
                             <p><b>Peso: </b> {{ $computer->weight}} </p>
                             <p><b>Color: </b> {{ $computer->color}} </p>
@@ -43,13 +42,17 @@
                             <b>Número de Puertos: </b> {{ $computer->usbNumber}} 
                         </td>
                         <td><p>{{ $computer->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
-                    @empty
-                    <h1>La tabla no tiene datos</h1>
                     </tr>
-                    @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="card-footer">
+            <div class="class col md 4">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-primary" href="{{ route('computers.edit', $computer->id) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ route('computers.destroy', $computer->id) }}">Eliminar</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -48,9 +48,10 @@ class ComputersController extends Controller
      * @param  \App\Models\Computers  $computers
      * @return \Illuminate\Http\Response
      */
-    public function show(Computers $computers)
+    public function show(Computers $computer)
     {
         //
+        return view('computers.show', compact('computer'));
     }
 
     /**

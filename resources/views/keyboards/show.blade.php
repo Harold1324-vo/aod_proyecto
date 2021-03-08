@@ -5,11 +5,13 @@
         <div class ="card-header">
             <div class="row">
                 <div class="class col md-8">
-                    <h2 class="card-title">Lista de teclados registrados.</h2>
+                    <div class="card-title">
+                        <h2>Teclado: {{ $keyboard->brand }} {{ $keyboard->model }}</h2>
+                    </div>
                 </div>
                 <div class="class col md 4">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a class="btn btn-primary" href="{{ route('keyboards.create') }}">+ Nuevo</a>
+                        <a class="btn btn-primary" href="{{ route('keyboards.index') }}">< Regresar</a>
                     </div>
                 </div>
             </div>
@@ -21,16 +23,13 @@
                     <th>Teclado</th>
                     <th>Modelo</th>
                     <th>Información</th>
-                    <th>Descripción</th>
                 </thead>
                 
                 <tbody>
-                @forelse($keyboards as $keyboard)
+                   
                     <tr>
                         <td>
-                            <a class="btn btn-info btn-small" href="{{ route('keyboards.show', $keyboard->id) }} ">
-                                <h4>{{ $keyboard->brand }} {{ $keyboard->model }}</h4></td>
-                            </a>
+                            <p>Imagen</p>
                         <td>
                             <p><b>Fabricante: </b> {{ $keyboard->maker}} </p>
                             <p><b>Color: </b> {{ $keyboard->color}} </p>
@@ -42,13 +41,17 @@
                             <p><b>Sistema Operativo: </b> {{ $keyboard->so}} </p> 
                         </td>
                         <td><p>{{ $keyboard->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
-                    @empty
-                    <h1>La tabla no tiene datos</h1>
                     </tr>
-                    @endforelse
                 </tbody>
             </table>
+        </div>
+        <div class="card-footer">
+            <div class="class col md 4">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-primary" href="{{ route('keyboards.edit', $keyboard->id) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ route('keyboards.destroy', $keyboard->id) }}">Eliminar</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
