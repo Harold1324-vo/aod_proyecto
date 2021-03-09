@@ -21,7 +21,6 @@
                     <th>Computadora</th>
                     <th>Modelo</th>
                     <th>Información</th>
-                    <th>Descripción</th>
                 </thead>
                 
                 <tbody>
@@ -34,7 +33,7 @@
                         <td>
                             <p><b>Procesador: </b> {{ $computer->processor}} </p>
                             <p><b>Tamaño de RAM: </b> {{ $computer->sizeRam}} </p>
-                            <p><b>Tipo de RAM: </b> {{ $computer->typeRAM}} </p>
+                            <p><b>Tecnología de RAM: </b> {{ $computer->typeRAM}} </p>
                             <p><b>Capacidad del HDD: </b> {{ $computer->capacityHDD}} </p>
                             <p><b>Peso: </b> {{ $computer->weight}} </p>
                             <p><b>Color: </b> {{ $computer->color}} </p>
@@ -43,7 +42,6 @@
                             <b>Número de Puertos: </b> {{ $computer->usbNumber}} 
                         </td>
                         <td><p>{{ $computer->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
                     @empty
                     <h1>La tabla no tiene datos</h1>
                     </tr>

@@ -33,7 +33,7 @@
                         <td>
                             <p><b>Procesador: </b> {{ $computer->processor}} </p>
                             <p><b>Tamaño de RAM: </b> {{ $computer->sizeRam}} </p>
-                            <p class="text-uppercase"><b class="text-capitalize">Tipo de RAM: </b> {{ $computer->typeRAM}} </p>
+                            <p class="text-uppercase"><b class="text-capitalize">Tecnología de RAM: </b> {{ $computer->typeRAM}} </p>
                             <p><b>Capacidad del HDD: </b> {{ $computer->capacityHDD}} </p>
                             <p><b>Peso: </b> {{ $computer->weight}} </p>
                             <p><b>Color: </b> {{ $computer->color}} </p>
@@ -50,7 +50,11 @@
             <div class="class col md 4">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn btn-primary" href="{{ route('computers.edit', $computer->id) }}">Editar</a>
-                    <a class="btn btn-danger" href="{{ route('computers.destroy', $computer->id) }}">Eliminar</a>
+                    <form action="{{ route('computers.destroy', $computer->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger" type="submit" value="Eliminar">
+                    </form>
                 </div>
             </div>
         </div>

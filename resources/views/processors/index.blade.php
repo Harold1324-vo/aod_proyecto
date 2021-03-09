@@ -21,7 +21,6 @@
                     <th>Procesador</th>
                     <th>Modelo</th>
                     <th>Información</th>
-                    <th>Descripción</th>
                 </thead>
                 
                 <tbody>
@@ -44,7 +43,6 @@
                             <p><b>Paquete: </b> {{ $processor->package}} </p> 
                         </td>
                         <td><p>{{ $processor->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
                     @empty
                     <h1>La tabla no tiene datos</h1>
                     </tr>

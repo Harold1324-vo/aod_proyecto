@@ -39,7 +39,7 @@ class ComputersController extends Controller
     {
         $computer = request()->except('_token');
         Computers::insert($computer);
-        return view('computers.index');
+        return redirect()->to(url('/computers'));
     }
 
     /**
@@ -60,9 +60,10 @@ class ComputersController extends Controller
      * @param  \App\Models\Computers  $computers
      * @return \Illuminate\Http\Response
      */
-    public function edit(Computers $computers)
+    public function edit(Computers $computer)
     {
-        //
+        //retornar vista
+        return view('computers.edit', compact('computer'));
     }
 
     /**
@@ -72,9 +73,11 @@ class ComputersController extends Controller
      * @param  \App\Models\Computers  $computers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Computers $computers)
+    public function update(Request $request, Computers $computer)
     {
-        //
+        $dataComputer = request()->except('_token');
+        $computer->update($dataComputer);
+        return redirect()->to(url('/computers'));
     }
 
     /**
@@ -83,8 +86,10 @@ class ComputersController extends Controller
      * @param  \App\Models\Computers  $computers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Computers $computers)
+    public function destroy(Computers $computer)
     {
-        //
+        //remover el recurso especificado
+        $computer->delete();
+        return redirect()->to(url('/computers'));
     }
 }

@@ -39,7 +39,7 @@ class MonitorController extends Controller
     {
         $monitor = request()->except('_token');
         Monitor::insert($monitor);
-        return view('monitors.index');
+        return redirect()->to(url('/monitors'));
     }
 
     /**
@@ -62,7 +62,8 @@ class MonitorController extends Controller
      */
     public function edit(Monitor $monitor)
     {
-        //
+        //retornar vista
+        return view('monitors.edit', compact('monitor'));
     }
 
     /**
@@ -74,7 +75,9 @@ class MonitorController extends Controller
      */
     public function update(Request $request, Monitor $monitor)
     {
-        //
+        $dataMonitor = request()->except('_token');
+        $monitor->update($dataMonitor);
+        return redirect()->to(url('/monitors'));
     }
 
     /**
@@ -85,6 +88,8 @@ class MonitorController extends Controller
      */
     public function destroy(Monitor $monitor)
     {
-        //
+        //remover el recurso especificado
+        $monitor->delete();
+        return redirect()->to(url('/monitors'));
     }
 }

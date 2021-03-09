@@ -39,7 +39,7 @@ class KeyboardController extends Controller
     {
         $keyboard = request()->except('_token');
         Keyboard::insert($keyboard);
-        return view('keyboards.index');
+        return redirect()->to(url('/keyboards'));
     }
 
     /**
@@ -62,7 +62,8 @@ class KeyboardController extends Controller
      */
     public function edit(Keyboard $keyboard)
     {
-        //
+        //retornar vista
+        return view('keyboards.edit', compact('keyboard'));
     }
 
     /**
@@ -74,7 +75,9 @@ class KeyboardController extends Controller
      */
     public function update(Request $request, Keyboard $keyboard)
     {
-        //
+        $dataKeyboard = request()->except('_token');
+        $keyboard->update($dataKeyboard);
+        return redirect()->to(url('/keyboards'));
     }
 
     /**
@@ -85,6 +88,8 @@ class KeyboardController extends Controller
      */
     public function destroy(Keyboard $keyboard)
     {
-        //
+        //remover el recurso especificado
+        $keyboard->delete();
+        return redirect()->to(url('/keyboards'));
     }
 }

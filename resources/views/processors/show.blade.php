@@ -51,7 +51,11 @@
             <div class="class col md 4">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn btn-primary" href="{{ route('processors.edit', $processor->id) }}">Editar</a>
-                    <a class="btn btn-danger" href="{{ route('processors.destroy', $processor->id) }}">Eliminar</a>
+                    <form action="{{ route('processors.destroy', $processor->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger" type="submit" value="Eliminar">
+                    </form>
                 </div>
             </div>
         </div>

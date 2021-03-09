@@ -21,7 +21,6 @@
                     <th>Teclado</th>
                     <th>Modelo</th>
                     <th>Información</th>
-                    <th>Descripción</th>
                 </thead>
                 
                 <tbody>
@@ -38,11 +37,10 @@
                             <p><b>Altura: </b> {{ $keyboard->hight}} </p>
                             <p><b>Ancho: </b> {{ $keyboard->broad}} </p>
                             <p><b>Resolución: </b> {{ $keyboard->resolution}} </p>
-                            <p><b>Plataforma: </b> {{ $keyboard->plataform}} </p>
+                            <p><b>Plataforma: </b> {{ $keyboard->platform}} </p>
                             <p><b>Sistema Operativo: </b> {{ $keyboard->so}} </p> 
                         </td>
                         <td><p>{{ $keyboard->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
                     @empty
                     <h1>La tabla no tiene datos</h1>
                     </tr>

@@ -21,7 +21,6 @@
                     <th>Monitor</th>
                     <th>Modelo</th>
                     <th>Información</th>
-                    <th>Descripción</th>
                 </thead>
                 
                 <tbody>
@@ -43,7 +42,6 @@
                             <p><b>Altavoces: </b> {{ $monitor->speakers}} </p> 
                         </td>
                         <td><p>{{ $monitor->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
                     @empty
                     <h1>La tabla no tiene datos</h1>
                     </tr>

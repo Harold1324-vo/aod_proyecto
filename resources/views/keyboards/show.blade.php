@@ -37,7 +37,7 @@
                             <p><b>Altura: </b> {{ $keyboard->hight}} </p>
                             <p><b>Ancho: </b> {{ $keyboard->broad}} </p>
                             <p><b>Resolución: </b> {{ $keyboard->resolution}} </p>
-                            <p><b>Plataforma: </b> {{ $keyboard->plataform}} </p>
+                            <p><b>Plataforma: </b> {{ $keyboard->platform}} </p>
                             <p><b>Sistema Operativo: </b> {{ $keyboard->so}} </p> 
                         </td>
                         <td><p>{{ $keyboard->description }}</p></td>
@@ -49,7 +49,11 @@
             <div class="class col md 4">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn btn-primary" href="{{ route('keyboards.edit', $keyboard->id) }}">Editar</a>
-                    <a class="btn btn-danger" href="{{ route('keyboards.destroy', $keyboard->id) }}">Eliminar</a>
+                    <form action="{{ route('keyboards.destroy', $keyboard->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger" type="submit" value="Eliminar">
+                    </form>
                 </div>
             </div>
         </div>

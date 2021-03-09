@@ -39,7 +39,7 @@ class ProcessorController extends Controller
     {
         $processor = request()->except('_token');
         Processor::insert($processor);
-        return view('processors.index');
+        return redirect()->to(url('/processors'));
     }
 
     /**
@@ -62,7 +62,8 @@ class ProcessorController extends Controller
      */
     public function edit(Processor $processor)
     {
-        //
+        //retornar vista
+        return view('processors.edit', compact('processor'));
     }
 
     /**
@@ -74,7 +75,9 @@ class ProcessorController extends Controller
      */
     public function update(Request $request, Processor $processor)
     {
-        //
+        $dataProcessor = request()->except('_token');
+        $processor->update($dataProcessor);
+        return redirect()->to(url('/processors'));
     }
 
     /**
@@ -85,6 +88,8 @@ class ProcessorController extends Controller
      */
     public function destroy(Processor $processor)
     {
-        //
+        //remover el recurso especificado
+        $processor->delete();
+        return redirect()->to(url('/processors'));
     }
 }

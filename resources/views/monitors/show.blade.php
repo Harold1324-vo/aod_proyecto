@@ -31,7 +31,7 @@
                         <td>
                             <p>Imagen</p>
                         <td>
-                        <p><b>Pulgadas: </b> {{ $monitor->inches}} </p>
+                            <p><b>Pulgadas: </b> {{ $monitor->inches}} </p>
                             <p><b>Número de puertos USB: </b> {{ $monitor->usbNumber}} </p>
                             <p><b>Número de puertos VGA: </b> {{ $monitor->vgaNumber}} </p>
                             <p><b>Número de puertos HDMI: </b> {{ $monitor->hdmiNumber}} </p>
@@ -50,7 +50,11 @@
             <div class="class col md 4">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <a class="btn btn-primary" href="{{ route('monitors.edit', $monitor->id) }}">Editar</a>
-                    <a class="btn btn-danger" href="{{ route('monitors.destroy', $monitor->id) }}">Eliminar</a>
+                    <form action="{{ route('monitors.destroy', $monitor->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger" type="submit" value="Eliminar">
+                    </form>
                 </div>
             </div>
         </div>
